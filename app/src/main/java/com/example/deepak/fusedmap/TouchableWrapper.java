@@ -3,6 +3,8 @@ package com.example.deepak.fusedmap;
 import android.content.Context;
 import android.graphics.Point;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
@@ -15,14 +17,15 @@ import android.widget.FrameLayout;
 public class TouchableWrapper extends FrameLayout {
     private UpdateMapAfterUserInterection updateMapAfterUserInterection;
 
-    public TouchableWrapper(@NonNull Context context) {
-        super(context);
-        try {
-            updateMapAfterUserInterection = (MapsActivity) context;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString() + " must implement UpdateMapAfterUserInterection");
-        }
+    public TouchableWrapper(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+
     }
+
+    public void setListener(UpdateMapAfterUserInterection listener) {
+        updateMapAfterUserInterection = listener;
+    }
+
     Point touchPoint = new Point();
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {

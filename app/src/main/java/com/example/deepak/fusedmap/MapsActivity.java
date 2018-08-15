@@ -138,6 +138,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
 
+        TouchableWrapper touchableMap = (TouchableWrapper) findViewById(R.id.touchableMap);
+        touchableMap.setListener(this);
+
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         createLocationRequest();
@@ -280,8 +283,6 @@ try {
     center = projection.toScreenLocation(newLocation);
     Point centerOfMap = center;
     final float angle = angleBetweenLines(centerOfMap, touchpoint, newTouchpoint);
-
-
     if (Math.abs(angle) < 5) {
         new Handler().post(new Runnable() {
             @Override
