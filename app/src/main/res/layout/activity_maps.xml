@@ -44,14 +44,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <fragment
+
+            <fragment
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context="com.example.deepak.fusedmap.MapsActivity" />
 
-          </com.example.deepak.fusedmap.TouchableWrapper>
+
+        </com.example.deepak.fusedmap.TouchableWrapper>
 
         <View
             android:layout_width="match_parent"
@@ -60,6 +62,16 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="0dp"
             android:background="@drawable/gradientmap" />
+
+        <ImageView
+            android:id="@+id/imageViewCompass"
+            android:onClick="imageClick"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_image_svg" />
 
     </RelativeLayout>
 

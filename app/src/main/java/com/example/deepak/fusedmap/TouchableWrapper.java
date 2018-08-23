@@ -37,6 +37,7 @@ public class TouchableWrapper extends FrameLayout {
                     newTouchPoint.y = (int) ev.getY();
                     updateMapAfterUserInterection.onUpdateMapAfterUserInterection(touchPoint,newTouchPoint);
                     touchPoint = newTouchPoint;
+                    Log.i("touchpoint", String.valueOf(touchPoint));
                 }
                 break;
             case MotionEvent.ACTION_UP:
